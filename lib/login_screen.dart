@@ -15,17 +15,20 @@ class LoginPage extends StatelessWidget {
         body: SafeArea(
           child: Column(
             children: [
-              Padding(
-                padding: const EdgeInsets.only(top: 150, left: 30),
-                child: Container(
-                  height: 250,
-                  width: 500,
-                  child: const Text(
-                    "Welcome...!\nLet's Fly with Flutter",
-                    style: TextStyle(
-                      color: Colors.white,
-                      fontSize: 30,
-                      fontFamily: 'pacific',
+              Expanded(
+                flex: 1,
+                child: Padding(
+                  padding: const EdgeInsets.only(top: 150, left: 30),
+                  child: Container(
+                    height: 250,
+                    width: 500,
+                    child: const Text(
+                      "Welcome...!\nLet's Fly with Flutter",
+                      style: TextStyle(
+                        color: Colors.white,
+                        fontSize: 30,
+                        fontFamily: 'pacific',
+                      ),
                     ),
                   ),
                 ),
