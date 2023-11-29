@@ -86,9 +86,10 @@ class LoginPage extends StatelessWidget {
                     ),
                     ElevatedButton(
                         style: ButtonStyle(
-                            elevation: MaterialStatePropertyAll<double>(10),
-                            fixedSize:
-                                MaterialStatePropertyAll<Size>(Size(150, 40)),
+                            elevation:
+                                const MaterialStatePropertyAll<double>(10),
+                            fixedSize: const MaterialStatePropertyAll<Size>(
+                                Size(150, 40)),
                             shape: MaterialStatePropertyAll<
                                 RoundedRectangleBorder>(RoundedRectangleBorder(
                               borderRadius: BorderRadius.circular(30.0),
