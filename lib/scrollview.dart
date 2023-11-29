@@ -10,7 +10,10 @@ class ScrollScreen extends StatelessWidget {
         title: Text("Details"),
       ),
       backgroundColor: Colors.transparent,
-      body: SafeArea(child: Text("Hello Man")),
+      body: SafeArea(
+          child: Container(
+        color: Color.fromARGB(255, 26, 51, 213),
+      )),
     );
   }
 }
