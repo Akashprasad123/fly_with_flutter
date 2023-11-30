@@ -7,13 +7,34 @@ class ScrollScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("Details"),
+        title: Text("List View"),
+        elevation: 15,
+        shadowColor: Colors.black,
+        automaticallyImplyLeading: true,
       ),
-      backgroundColor: Colors.transparent,
-      body: SafeArea(
+      backgroundColor: Color.fromARGB(255, 26, 51, 213),
+      drawer: Drawer(
+        backgroundColor: const Color.fromARGB(255, 13, 70, 116),
+        elevation: 10,
+        shadowColor: Colors.black,
+        child: SafeArea(
           child: Container(
-        color: Color.fromARGB(255, 26, 51, 213),
-      )),
+            child: ListView(
+              children: const [
+                SizedBox(
+                  height: 10,
+                ),
+                UserAccountsDrawerHeader(
+                  accountName: Text("Akash Prasad"),
+                  accountEmail: Text(
+                    "abc@example.com",
+                  ),
+                )
+              ],
+            ),
+          ),
+        ),
+      ),
     );
   }
 }

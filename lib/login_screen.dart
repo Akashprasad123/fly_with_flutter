@@ -38,7 +38,7 @@ class LoginPage extends StatelessWidget {
                   child: Padding(
                     padding: const EdgeInsets.only(left: 20, right: 20),
                     child: Column(children: [
-                      TextField(
+                      TextFormField(
                         style: const TextStyle(color: Colors.white),
                         textInputAction: TextInputAction.next,
                         decoration: InputDecoration(
@@ -62,7 +62,7 @@ class LoginPage extends StatelessWidget {
                       const SizedBox(
                         height: 20,
                       ),
-                      TextField(
+                      TextFormField(
                         style: const TextStyle(color: Colors.white),
                         obscureText: true,
                         textInputAction: TextInputAction.done,
