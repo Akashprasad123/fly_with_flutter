@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import 'scrollview.dart';
+
 class LoginPage extends StatelessWidget {
   const LoginPage({super.key});
 
@@ -17,20 +19,17 @@ class LoginPage extends StatelessWidget {
             padding: const EdgeInsets.only(bottom: 100),
             child: Column(
               children: [
-                Expanded(
-                  flex: 1,
-                  child: Padding(
-                    padding: const EdgeInsets.only(top: 150, left: 30),
-                    child: Container(
-                      height: 250,
-                      width: 500,
-                      child: const Text(
-                        "Welcome...!\nLet's Fly with Flutter",
-                        style: TextStyle(
-                          color: Colors.white,
-                          fontSize: 30,
-                          fontFamily: 'pacific',
-                        ),
+                Padding(
+                  padding: const EdgeInsets.only(top: 150, left: 30),
+                  child: Container(
+                    height: 250,
+                    width: 500,
+                    child: const Text(
+                      "Welcome...!\nLet's Fly with Flutter",
+                      style: TextStyle(
+                        color: Colors.white,
+                        fontSize: 30,
+                        fontFamily: 'pacific',
                       ),
                     ),
                   ),
@@ -102,7 +101,10 @@ class LoginPage extends StatelessWidget {
                               side: const MaterialStatePropertyAll<BorderSide>(
                                 BorderSide(width: 2, color: Colors.white),
                               )),
-                          onPressed: () {},
+                          onPressed: () {
+                            Navigator.of(context).push(MaterialPageRoute(
+                                builder: (context) => const ScrollScreen()));
+                          },
                           child: const Text(
                             "Login",
                             style: TextStyle(fontSize: 20),
