@@ -13,7 +13,9 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: "Fly Flutter",
-      theme: ThemeData(primaryColor: Colors.blue[900]),
+      theme: ThemeData(
+          primarySwatch: Colors.blue,
+          primaryColor: const Color.fromARGB(255, 132, 60, 255)),
       home: LoginPage(),
     );
   }

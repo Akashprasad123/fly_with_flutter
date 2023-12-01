@@ -102,8 +102,10 @@ class LoginPage extends StatelessWidget {
                                 BorderSide(width: 2, color: Colors.white),
                               )),
                           onPressed: () {
-                            Navigator.of(context).push(MaterialPageRoute(
-                                builder: (context) => const ScrollScreen()));
+                            Navigator.of(context).pushReplacement(
+                                MaterialPageRoute(
+                                    builder: (context) =>
+                                        const ScrollScreen()));
                           },
                           child: const Text(
                             "Login",
