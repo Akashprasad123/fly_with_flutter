@@ -89,10 +89,14 @@ class LoginPage extends StatelessWidget {
                       ),
                       ElevatedButton(
                           style: ButtonStyle(
+                              overlayColor: MaterialStateProperty.all<Color>(
+                                  Colors.white),
+                              backgroundColor: MaterialStateProperty.all<Color>(
+                                  Colors.black),
                               elevation:
                                   const MaterialStatePropertyAll<double>(10),
                               fixedSize: const MaterialStatePropertyAll<Size>(
-                                  Size(150, 40)),
+                                  Size(200, 50)),
                               shape: MaterialStatePropertyAll<
                                       RoundedRectangleBorder>(
                                   RoundedRectangleBorder(
@@ -102,14 +106,12 @@ class LoginPage extends StatelessWidget {
                                 BorderSide(width: 2, color: Colors.white),
                               )),
                           onPressed: () {
-                            Navigator.of(context).pushReplacement(
-                                MaterialPageRoute(
-                                    builder: (context) =>
-                                        const ScrollScreen()));
+                            Navigator.of(context).push(MaterialPageRoute(
+                                builder: (context) => const ScrollScreen()));
                           },
                           child: const Text(
                             "Login",
-                            style: TextStyle(fontSize: 20),
+                            style: TextStyle(fontSize: 20, color: Colors.white),
                           ))
                     ]),
                   ),

@@ -51,15 +51,19 @@ class ScrollScreen extends StatelessWidget {
 Widget ScrollView() {
   return ListView.separated(
     itemBuilder: (context, index) {
-      return Card(
-        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
-        child: ListTile(
-          minVerticalPadding: 35,
-          leading: CircleAvatar(
-            radius: 35,
-            backgroundColor: Color.fromARGB(255, 5, 3, 134),
+      return Padding(
+        padding: const EdgeInsets.only(right: 10, left: 10),
+        child: Card(
+          shape:
+              RoundedRectangleBorder(borderRadius: BorderRadius.circular(30)),
+          elevation: 10,
+          child: InkWell(
+            child: ListTile(
+              title: Text("Name $index"),
+              subtitle: Text('source $index'),
+              onTap: () {},
+            ),
           ),
-          tileColor: Colors.white,
         ),
       );
     },
@@ -71,3 +75,17 @@ Widget ScrollView() {
     itemCount: 50,
   );
 }
+
+// Widget eachItem() {
+//   return Card(
+//     shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),
+//     child: ListTile(
+//       minVerticalPadding: 35,
+//       leading: CircleAvatar(
+//         radius: 35,
+//         backgroundColor: Color.fromARGB(255, 5, 3, 134),
+//       ),
+//       tileColor: Colors.white,
+//     ),
+//   );
+// }
