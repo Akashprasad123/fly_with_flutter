@@ -8,12 +8,12 @@ class ScrollScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("List View"),
+        title: const Text("List View"),
         elevation: 15,
         shadowColor: Colors.black,
         automaticallyImplyLeading: true,
       ),
-      backgroundColor: Color.fromARGB(255, 26, 51, 213),
+      backgroundColor: const Color.fromARGB(255, 26, 51, 213),
       drawer: Drawer(
         backgroundColor: const Color.fromARGB(255, 13, 70, 116),
         elevation: 10,
@@ -52,24 +52,21 @@ class ScrollScreen extends StatelessWidget {
 Widget ScrollView() {
   return ListView.separated(
     itemBuilder: (context, index) {
-      return Padding(
-        padding: const EdgeInsets.only(right: 10, left: 10),
-        child: Card(
-          shape:
-              RoundedRectangleBorder(borderRadius: BorderRadius.circular(30)),
-          elevation: 10,
-          child: InkWell(
-            child: ListTile(
-              title: Text("Name $index"),
-              subtitle: Text('source $index'),
-              onTap: () {},
-            ),
+      return Card(
+        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(30)),
+        child: ListTile(
+          shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(50)),
+          minVerticalPadding: 35,
+          leading: const CircleAvatar(
+            radius: 35,
+            backgroundColor: Color.fromARGB(255, 5, 3, 134),
           ),
+          tileColor: Colors.white,
         ),
       );
     },
     separatorBuilder: (context, index) {
-      return SizedBox(
+      return const SizedBox(
         height: 0,
       );
     },
