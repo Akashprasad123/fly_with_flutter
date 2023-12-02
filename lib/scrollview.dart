@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 
 class ScrollScreen extends StatelessWidget {
-  const ScrollScreen({super.key});
+  String userName;
+  ScrollScreen({super.key, required this.userName});
 
   @override
   Widget build(BuildContext context) {
@@ -18,23 +19,25 @@ class ScrollScreen extends StatelessWidget {
         elevation: 10,
         shadowColor: Colors.black,
         child: SafeArea(
-          child: ListView(
-            children: const [
-              SizedBox(
-                height: 10,
-              ),
-              UserAccountsDrawerHeader(
-                accountName: Text("Akash Prasad"),
-                accountEmail: Text(
-                  "abc@example.com",
+          child: Container(
+            child: ListView(
+              children: [
+                SizedBox(
+                  height: 10,
                 ),
-                currentAccountPicture: CircleAvatar(
-                  backgroundImage: NetworkImage(
-                      "https://th.bing.com/th/id/OIP.8sEQq9-fsOY0T-R-vYtVqgHaIB?rs=1&pid=ImgDetMain"),
-                  backgroundColor: Colors.white,
-                ),
-              )
-            ],
+                UserAccountsDrawerHeader(
+                  accountName: Text(userName),
+                  accountEmail: Text(
+                    "abc@example.com",
+                  ),
+                  currentAccountPicture: CircleAvatar(
+                    backgroundImage: NetworkImage(
+                        "https://th.bing.com/th/id/OIP.8sEQq9-fsOY0T-R-vYtVqgHaIB?rs=1&pid=ImgDetMain"),
+                    backgroundColor: Colors.white,
+                  ),
+                )
+              ],
+            ),
           ),
         ),
       ),

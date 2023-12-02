@@ -2,13 +2,19 @@ import 'package:flutter/material.dart';
 
 import 'scrollview.dart';
 
-class LoginPage extends StatelessWidget {
+class LoginPage extends StatefulWidget {
   const LoginPage({super.key});
 
   @override
+  State<LoginPage> createState() => _LoginPageState();
+}
+
+class _LoginPageState extends State<LoginPage> {
+  @override
   Widget build(BuildContext context) {
-    final controller1 = TextEditingController();
-    final controller2 = TextEditingController();
+    TextEditingController userNameTEC = TextEditingController();
+    TextEditingController passwordTEC = TextEditingController();
+
     return Container(
       decoration: const BoxDecoration(
         color: Color.fromARGB(255, 26, 51, 213),
@@ -41,7 +47,7 @@ class LoginPage extends StatelessWidget {
                     padding: const EdgeInsets.only(left: 20, right: 20),
                     child: Column(children: [
                       TextFormField(
-                        controller: controller1,
+                        controller: userNameTEC,
                         style: const TextStyle(color: Colors.white),
                         textInputAction: TextInputAction.next,
                         decoration: InputDecoration(
@@ -66,7 +72,7 @@ class LoginPage extends StatelessWidget {
                         height: 20,
                       ),
                       TextFormField(
-                        controller: controller2,
+                        controller: passwordTEC,
                         style: const TextStyle(color: Colors.white),
                         obscureText: true,
                         textInputAction: TextInputAction.done,
@@ -110,17 +116,12 @@ class LoginPage extends StatelessWidget {
                                 BorderSide(width: 2, color: Colors.white),
                               )),
                           onPressed: () {
-                            if (controller1.text == controller2.text) {
-                              Navigator.push(
-                                  context,
-                                  MaterialPageRoute(
-                                      builder: (BuildContext context) =>
-                                          const ScrollScreen()));
-                            } else {
-                              ScaffoldMessenger.of(context).showSnackBar(
-                                  const SnackBar(
-                                      content: Text(
-                                          "Username and password must be same: ")));
+                            var userName = userNameTEC.text;
+                            var password = passwordTEC.text;
+                            if (userName == password) {
+                              Navigator.of(context).push(MaterialPageRoute(
+                                  builder: (context) =>
+                                      ScrollScreen(userName: userName)));
                             }
                           },
                           child: const Text(
