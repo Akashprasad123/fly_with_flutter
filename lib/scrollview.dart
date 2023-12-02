@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 
 class ScrollScreen extends StatelessWidget {
-  const ScrollScreen({super.key});
+  String userName;
+  ScrollScreen({super.key, required this.userName});
 
   @override
   Widget build(BuildContext context) {
@@ -20,12 +21,12 @@ class ScrollScreen extends StatelessWidget {
         child: SafeArea(
           child: Container(
             child: ListView(
-              children: const [
+              children: [
                 SizedBox(
                   height: 10,
                 ),
                 UserAccountsDrawerHeader(
-                  accountName: Text("Akash Prasad"),
+                  accountName: Text(userName),
                   accountEmail: Text(
                     "abc@example.com",
                   ),

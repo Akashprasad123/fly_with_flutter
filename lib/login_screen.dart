@@ -2,11 +2,19 @@ import 'package:flutter/material.dart';
 
 import 'scrollview.dart';
 
-class LoginPage extends StatelessWidget {
+class LoginPage extends StatefulWidget {
   const LoginPage({super.key});
 
   @override
+  State<LoginPage> createState() => _LoginPageState();
+}
+
+class _LoginPageState extends State<LoginPage> {
+  @override
   Widget build(BuildContext context) {
+    TextEditingController userNameTEC = TextEditingController();
+    TextEditingController passwordTEC = TextEditingController();
+
     return Container(
       decoration: const BoxDecoration(
         color: Color.fromARGB(255, 26, 51, 213),
@@ -39,6 +47,7 @@ class LoginPage extends StatelessWidget {
                     padding: const EdgeInsets.only(left: 20, right: 20),
                     child: Column(children: [
                       TextFormField(
+                        controller: userNameTEC,
                         style: const TextStyle(color: Colors.white),
                         textInputAction: TextInputAction.next,
                         decoration: InputDecoration(
@@ -63,6 +72,7 @@ class LoginPage extends StatelessWidget {
                         height: 20,
                       ),
                       TextFormField(
+                        controller: passwordTEC,
                         style: const TextStyle(color: Colors.white),
                         obscureText: true,
                         textInputAction: TextInputAction.done,
@@ -106,8 +116,13 @@ class LoginPage extends StatelessWidget {
                                 BorderSide(width: 2, color: Colors.white),
                               )),
                           onPressed: () {
-                            Navigator.of(context).push(MaterialPageRoute(
-                                builder: (context) => const ScrollScreen()));
+                            var userName = userNameTEC.text;
+                            var password = passwordTEC.text;
+                            if (userName == password) {
+                              Navigator.of(context).push(MaterialPageRoute(
+                                  builder: (context) =>
+                                      ScrollScreen(userName: userName)));
+                            }
                           },
                           child: const Text(
                             "Login",
