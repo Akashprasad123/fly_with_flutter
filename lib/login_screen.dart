@@ -75,7 +75,23 @@ class _LoginPageState extends State<LoginPage> {
                         controller: passwordTEC,
                         style: const TextStyle(color: Colors.white),
                         obscureText: true,
-                        textInputAction: TextInputAction.done,
+                        onFieldSubmitted: (value) {
+                          if (value == userNameTEC.text) {
+                            Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                    builder: (BuildContext context) =>
+                                        ScrollScreen(
+                                            userName: userNameTEC.text)));
+                          } else {
+                            ScaffoldMessenger.of(context).showSnackBar(
+                              const SnackBar(
+                                content:
+                                    Text("Username and password must be same "),
+                              ),
+                            );
+                          }
+                        },
                         decoration: InputDecoration(
                           prefixIcon: const Icon(
                             Icons.password,
@@ -122,6 +138,11 @@ class _LoginPageState extends State<LoginPage> {
                               Navigator.of(context).push(MaterialPageRoute(
                                   builder: (context) =>
                                       ScrollScreen(userName: userName)));
+                            } else {
+                              ScaffoldMessenger.of(context).showSnackBar(
+                                  const SnackBar(
+                                      content: Text(
+                                          "Username and password must be same ")));
                             }
                           },
                           child: const Text(
