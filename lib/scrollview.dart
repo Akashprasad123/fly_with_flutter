@@ -18,7 +18,7 @@ class ScrollScreen extends StatelessWidget {
         elevation: 10,
         shadowColor: Colors.black,
         child: SafeArea(
-          child:  ListView(
+          child: ListView(
             children: const [
               SizedBox(
                 height: 10,
@@ -49,18 +49,16 @@ class ScrollScreen extends StatelessWidget {
 Widget ScrollView() {
   return ListView.separated(
     itemBuilder: (context, index) {
-      return Expanded(
-        child: Card(
-          shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
-          child: const ListTile(
-            shape: RoundedRectangleBorder(borderRadius: BorderRadius.all(Radius.circular(50))),
-            minVerticalPadding: 35,
-            leading: CircleAvatar(
-              radius: 35,
-              backgroundColor: Color.fromARGB(255, 5, 3, 134),
-            ),
-            tileColor: Colors.white,
+      return Card(
+        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(30)),
+        child: ListTile(
+          shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(50)),
+          minVerticalPadding: 35,
+          leading: const CircleAvatar(
+            radius: 35,
+            backgroundColor: Color.fromARGB(255, 5, 3, 134),
           ),
+          tileColor: Colors.white,
         ),
       );
     },
@@ -72,3 +70,17 @@ Widget ScrollView() {
     itemCount: 50,
   );
 }
+
+// Widget eachItem() {
+//   return Card(
+//     shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),
+//     child: ListTile(
+//       minVerticalPadding: 35,
+//       leading: CircleAvatar(
+//         radius: 35,
+//         backgroundColor: Color.fromARGB(255, 5, 3, 134),
+//       ),
+//       tileColor: Colors.white,
+//     ),
+//   );
+// }

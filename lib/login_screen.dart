@@ -7,6 +7,8 @@ class LoginPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final controller1 = TextEditingController();
+    final controller2 = TextEditingController();
     return Container(
       decoration: const BoxDecoration(
         color: Color.fromARGB(255, 26, 51, 213),
@@ -39,6 +41,7 @@ class LoginPage extends StatelessWidget {
                     padding: const EdgeInsets.only(left: 20, right: 20),
                     child: Column(children: [
                       TextFormField(
+                        controller: controller1,
                         style: const TextStyle(color: Colors.white),
                         textInputAction: TextInputAction.next,
                         decoration: InputDecoration(
@@ -63,6 +66,7 @@ class LoginPage extends StatelessWidget {
                         height: 20,
                       ),
                       TextFormField(
+                        controller: controller2,
                         style: const TextStyle(color: Colors.white),
                         obscureText: true,
                         textInputAction: TextInputAction.done,
@@ -89,10 +93,14 @@ class LoginPage extends StatelessWidget {
                       ),
                       ElevatedButton(
                           style: ButtonStyle(
+                              overlayColor: MaterialStateProperty.all<Color>(
+                                  Colors.white),
+                              backgroundColor: MaterialStateProperty.all<Color>(
+                                  Colors.black),
                               elevation:
                                   const MaterialStatePropertyAll<double>(10),
                               fixedSize: const MaterialStatePropertyAll<Size>(
-                                  Size(150, 40)),
+                                  Size(200, 50)),
                               shape: MaterialStatePropertyAll<
                                       RoundedRectangleBorder>(
                                   RoundedRectangleBorder(
@@ -102,14 +110,22 @@ class LoginPage extends StatelessWidget {
                                 BorderSide(width: 2, color: Colors.white),
                               )),
                           onPressed: () {
-                            Navigator.of(context).pushReplacement(
-                                MaterialPageRoute(
-                                    builder: (context) =>
-                                        const ScrollScreen()));
+                            if (controller1.text == controller2.text) {
+                              Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                      builder: (BuildContext context) =>
+                                          const ScrollScreen()));
+                            } else {
+                              ScaffoldMessenger.of(context).showSnackBar(
+                                  const SnackBar(
+                                      content: Text(
+                                          "Username and password must be same: ")));
+                            }
                           },
                           child: const Text(
                             "Login",
-                            style: TextStyle(fontSize: 20),
+                            style: TextStyle(fontSize: 20, color: Colors.white),
                           ))
                     ]),
                   ),
