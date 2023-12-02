@@ -16,7 +16,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
           primarySwatch: Colors.blue,
           primaryColor: const Color.fromARGB(255, 132, 60, 255)),
-      home: LoginPage(),
+      home: const LoginPage(),
     );
   }
 }
